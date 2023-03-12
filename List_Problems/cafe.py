@@ -52,23 +52,17 @@ def updateProfit(custIn):
 
 def printProfit(custIn,count):
     print("High Profit Items : ")
-    list_profit=[]
-    temp = profitItem
-    for i in range(count):
-        maxx = temp.index(max(temp))
-        temp[maxx] = 0
-        list_profit.append(items[maxx])
-    print(list_profit)
+    enumProfit = list(enumerate(profitItem))
+    enumProfit_Sort = sorted(enumProfit,key=lambda x:x[1],reverse=True)
+    for i in enumProfit_Sort[0:count]:
+        print(items[i[0]])
 
 def printSold(custin,count):
     print("High sold Items : ")
-    list_sold=[]
-    temp = soldItems
-    for i in range(count):
-        maxx = temp.index(max(temp))
-        temp[maxx] = 0
-        list_sold.append(items[maxx])
-    print(list_sold)
+    enumSold = list(enumerate(soldItems))
+    enumSold_Sort = sorted(enumSold,key=lambda x:x[1],reverse=True)
+    for i in enumSold_Sort[0:count]:
+        print(items[i[0]])
 
 while customers <= 5:
     # begin loop
